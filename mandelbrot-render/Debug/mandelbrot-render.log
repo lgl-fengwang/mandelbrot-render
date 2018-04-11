@@ -1,4 +1,3 @@
 ﻿  main.cpp
-e:\visualstudio2017\project\mandelbrot-render\mandelbrot-render\main.cpp(80): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
 e:\visualstudio2017\project\mandelbrot-render\mandelbrot-render\main.cpp(83): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
   mandelbrot-render.vcxproj -> E:\VisualStudio2017\Project\mandelbrot-render\Debug\mandelbrot-render.exe

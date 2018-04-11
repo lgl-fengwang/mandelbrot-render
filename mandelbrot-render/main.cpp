@@ -8,9 +8,9 @@ using namespace std;
 double escape_radius = 4.0; //逃逸半径
 int max_iter_number = 1000; //最大迭代次数
 
-double ox = -0.743643135; //原点x坐标
-double oy = 0.131825963; //原点y坐标
-double width = 0.000014628; //图像宽
+double ox = 0; //原点x坐标
+double oy = 0; //原点y坐标
+double width = 4; //缩放级别
 double ratio = 0.75; //高宽比
 
 int image_width = 800;
@@ -35,7 +35,7 @@ int main() {
     ofstream file;
     cin.get();
     cout << "图形生成中..." << endl;
-    file.open(filename + "-" +  to_string(escape_radius) + "-" + to_string(max_iter_number) + "-" + to_string(ox) + "-" + to_string(oy) + ".ppm", ios::trunc);
+    file.open(filename + "-" +  to_string(escape_radius) + "-" + to_string(max_iter_number) + "-" + to_string(ox) + "-" + to_string(oy) + ".ppm", ios::trunc | ios::binary);
     file << "P6 " << image_width << " " << image_height << " " << 255 << " ";
     Pixel rgb;
     for (int row = 0; row < image_height; ++row) {
@@ -74,13 +74,13 @@ Pixel Interpolation(int i, Pixel rgb1, Pixel rgb2) {
     double f = i * 1.0 / max_iter_number;
     Pixel rgb;
     int a, b, c;
-    //a = floor((1 - f) * rgb1.r + f * rgb2.r + 5);
+    //a = floor((1 - f) * rgb1.r + f * rgb2.r);
     a = 0;
     rgb.r = (unsigned char) a;
-    b = floor((1 - f) * rgb1.g + f * rgb2.g + 5);
-    //b = 0;
+    //b = floor((1 - f) * rgb1.g + f * rgb2.g);
+    b = 0;
     rgb.g = (unsigned char)b;
-    c = floor((1 - f) * rgb1.b + f * rgb2.b + 5);
+    c = floor((1 - f) * rgb1.b + f * rgb2.b);
     //c = 0;
     rgb.b = (unsigned char)c;
     return rgb;
